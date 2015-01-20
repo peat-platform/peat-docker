@@ -4,6 +4,7 @@ PATH_STUB=/home/openi
 
 #                 Container                     Link                Image                          Command
 docker run -d --name openidao                                      openi/dao              node $PATH_STUB/dao/lib/local-runner.js
+docker run -d --name openiauthapi          --link openidao:dao     openi/dao              node $PATH_STUB/auth-api/lib/local-runner.js
 docker run -d --name openicomms            --link openidao:dao     openi/communications   node $PATH_STUB/communications/lib/local-runner.js
 docker run -d --name openiattachmentapi    --link openidao:dao     openi/attachmentapi    node $PATH_STUB/attachment-api/lib/local-runner.js
 docker run -d --name openiobjectapi        --link openidao:dao     openi/objectapi        node $PATH_STUB/object-api/lib/local-runner.js

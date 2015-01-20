@@ -1,6 +1,7 @@
 #!/bin/sh
 
 docker build -t openi/dao            dao/
+docker build -t openi/authapi        auth_api/
 docker build -t openi/typeapi        type_api/
 docker build -t openi/searchapi      search_api/
 docker build -t openi/objectapi      object_api/
