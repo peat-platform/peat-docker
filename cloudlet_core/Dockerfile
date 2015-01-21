@@ -4,8 +4,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
-# Add user to the system
-RUN sudo useradd -d /home/openi -m -p pass openi && mkdir -p /opt/openi/cloudlet_platform/logs &&                       \
+RUN mkdir -p /opt/openi/cloudlet_platform/logs &&                                                                       \
     sudo apt-get update -y && sudo apt-get -y install git wget librrd-dev &&                                            \
     sudo apt-get install -y g++ uuid-dev binutils libtool autoconf automake &&                                          \
     cd /tmp && sudo wget http://download.zeromq.org/zeromq-4.0.5.tar.gz && sudo tar -zxvf zeromq-4.0.5.tar.gz &&        \
