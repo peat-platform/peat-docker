@@ -16,8 +16,8 @@ apt-get install docker.io
 
 However due to docker using features specific to linux, for both Windows and OSX the program Boot2Docker must be installed.
 Links to these are below: 
-[OSX](https://github.com/boot2docker/osx-installer/releases/tag/v1.4.1)
-[Windows](https://github.com/boot2docker/windows-installer/releases/tag/v1.4.1)
+- [OSX](https://github.com/boot2docker/osx-installer/releases/tag/v1.4.1),
+- [Windows](https://github.com/boot2docker/windows-installer/releases/tag/v1.4.1)
 
 Installation guides for other OS's may be found [here](https://docs.docker.com/installation/)
 
