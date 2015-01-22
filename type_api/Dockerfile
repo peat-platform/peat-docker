@@ -14,3 +14,4 @@ RUN sudo apt-get -y install librrd-dev python && \
     sudo apt-get autoclean && \
     sudo apt-get autoremove -y
 
+ADD docker-runner.js /type-api/lib/
