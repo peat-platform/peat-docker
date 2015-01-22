@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker rmi $(docker images -q)
+docker rmi -f $(sudo docker images | grep "openiicteu/" | awk "{print \$3}")

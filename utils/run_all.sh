@@ -13,8 +13,8 @@ docker run -d --name openiswagger          --link openidao:dao     openi/swagger
 docker run -d --name openicloudletapi      --link openidao:dao     openi/cloudletapi      node $PATH_STUB/cloudlet-api/lib/local-runner.js
 docker run -d --name openinotifications    --link openicomms:comms \
                                            --link openidao:dao     openi/notifications    node $PATH_STUB/notifications/lib/local-runner.js
-docker run -d --name searchapi             --link openidao:dao     openi/searchapi        node $PATH_STUB/search_api/lib/local-runner.js
-docker run -d --name typeapi               --link openidao:dao     openi/typeapi          node $PATH_STUB/type-api/lib/local-runner.js
+docker run -d --name openisearchapi        --link openidao:dao     openi/searchapi        node $PATH_STUB/search_api/lib/local-runner.js
+docker run -d --name openitypeapi          --link openidao:dao     openi/typeapi          node $PATH_STUB/type-api/lib/local-runner.js
 
 
 

@@ -1,14 +1,14 @@
 #!/bin/sh
 
-docker build -t openi/dao            dao/
-docker build -t openi/authapi        auth_api/
-docker build -t openi/typeapi        type_api/
-docker build -t openi/searchapi      search_api/
-docker build -t openi/objectapi      object_api/
-docker build -t openi/swaggerdef     swagger_def/
-docker build -t openi/cloudletapi    cloudlet_api/
-docker build -t openi/notifications  notifications/
-docker build -t openi/attachmentapi  attachment_api/
-docker build -t openi/communications communications/
-docker build -t openi/permissionsapi permissions_api/
+docker build -t openiicteu/dao            dao/
+docker build -t openiicteu/authapi        auth_api/
+docker build -t openiicteu/typeapi        type_api/
+docker build -t openiicteu/searchapi      search_api/
+docker build -t openiicteu/objectapi      object_api/
+docker build -t openiicteu/swaggerdef     swagger_def/
+docker build -t openiicteu/cloudletapi    cloudlet_api/
+docker build -t openiicteu/notifications  notifications/
+docker build -t openiicteu/attachmentapi  attachment_api/
+docker build -t openiicteu/communications communications/
+docker build -t openiicteu/permissionsapi permissions_api/
 
