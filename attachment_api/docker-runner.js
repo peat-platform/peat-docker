@@ -9,7 +9,7 @@ var attachmentApi = require('./main.js');
 var os = require('os');
 
 var dao_sink_addr = process.env.DAO_PORT_49999_TCP;
-var m_handler_sink_addr; // Points to mongrel2
+var m_handler_sink_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49914'; // Points to mongrel2
 var m_handler_source_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49913';
 
 
@@ -43,4 +43,4 @@ var config = {
 };
 
 
-typeApi(config);
+attachmentApi(config);
