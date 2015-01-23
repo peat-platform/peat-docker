@@ -12,7 +12,8 @@ RUN sudo apt-get -y install librrd-dev python && \
     cd object-api/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \
     sudo apt-get autoclean && \
-    sudo apt-get autoremove -y
+    sudo apt-get autoremove -y && \
+    sudo apt-get -y install rrdtool
 
 ADD docker-runner.js /object-api/lib/
 
