@@ -4,7 +4,7 @@ FROM openiicteu/cloudlet_core
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
 # Expose required ports
-EXPOSE 22 80 443 8080
+EXPOSE 80 443
 
 # Add mongrel2
 RUN apt-get install -y libsqlite3-dev sqlite3 openssh-server build-essential uuid-dev supervisor && \  
