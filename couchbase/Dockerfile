@@ -1,6 +1,6 @@
 # This file creates a Docker image containing the Couchbase DB
 
-FROM dustin/couchbase 
+FROM openiicteu/couchbase
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
 
