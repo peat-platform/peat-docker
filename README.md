@@ -42,9 +42,4 @@ Finally run all of the images as containers.
 sh utils/run_all.sh
 ```
 
-## Note
-
-- Currently each container is isolated, they will not communicate between each other.
-- Currently the ```teardown_containers.sh``` and the ```teardown_images.sh``` utility scripts will remove ALL docker containers and images.
-
  
