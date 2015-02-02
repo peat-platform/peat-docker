@@ -16,3 +16,6 @@ RUN sudo apt-get -y install librrd-dev python && \
 
 ADD docker-runner.js /notifications/lib/
 
+WORKDIR /notifications/lib/
+
+ENTRYPOINT ["node", "docker-runner.js"]

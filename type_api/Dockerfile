@@ -16,3 +16,7 @@ RUN sudo apt-get -y install librrd-dev python && \
     sudo apt-get -y install rrdtool
 
 ADD docker-runner.js /type-api/lib/
+
+WORKDIR /type-api/lib/
+
+ENTRYPOINT ["node", "docker-runner.js"]

@@ -17,3 +17,6 @@ RUN sudo apt-get -y install librrd-dev python && \
 
 ADD docker-runner.js /cloudlet-api/lib/
 
+WORKDIR /cloudlet-api/lib/
+
+ENTRYPOINT ["node", "docker-runner.js"]

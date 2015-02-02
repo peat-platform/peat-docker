@@ -3,6 +3,7 @@
 docker build -t openiicteu/dao            dao/
 docker build -t openiicteu/authapi        auth_api/
 docker build -t openiicteu/typeapi        type_api/
+docker build -t openiicteu/mongrel2       mongrel2/
 docker build -t openiicteu/searchapi      search_api/
 docker build -t openiicteu/objectapi      object_api/
 docker build -t openiicteu/swaggerdef     swagger_def/

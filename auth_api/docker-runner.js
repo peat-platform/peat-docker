@@ -1,33 +1,26 @@
 /**
- * Created by dmccarthy on 14/11/2013.
+ * Created by akeating on 16/1/2015.
  */
 
 
 'use strict';
 
 var authApi = require('./main.js');
-var os = require('os');
-
-var dao_sink_addr = process.env.DAO_PORT_99999_TCP;
-var m_handler_source_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49917';
-var m_handler_sink_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49918';
-var api_handler_source_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49559';
-var api_handler_sink_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49559';
 
 var config = {
    dao_sink        : {
-      spec: dao_sink_addr ,
+      spec:'tcp://127.0.0.1:49999',
       bind:false,
       type:'push',
       id:'a'
    },
    mongrel_handler : {
-      source : {spec: m_handler_source_addr , bind:false, id:'b', type:'pull', isMongrel2:true },
-      sink   : {spec: m_handler_sink_addr , bind:false, id:'c', type:'pub', isMongrel2:true }
+      source : {spec:'tcp://127.0.0.1:49917', bind:false, id:'b', type:'pull', isMongrel2:true },
+      sink   : {spec:'tcp://127.0.0.1:49918', bind:false, id:'c', type:'pub', isMongrel2:true }
    },
    api_handler : {
-      source : {spec : api_handler_source_addr , bind : true,  subscribe: '', type : 'sub', id : 'AuthSource'},
-      sink   : {spec : api_handler_sink_addr , bind : false, subscribe: '', type : 'pub', id : 'AuthSink', asJson: true}
+      source : {spec : 'tcp://127.0.0.1:49559', bind : true,  subscribe: '', type : 'sub', id : 'AuthSource'},
+      sink   : {spec : 'tcp://127.0.0.1:49559', bind : false, subscribe: '', type : 'pub', id : 'AuthSink', asJson: true}
    },
    logger_params : {
       'path'     : '/opt/openi/cloudlet_platform/logs/crud_api',
@@ -51,4 +44,4 @@ var config = {
    }
 };
 
-authApi(config); 
+authApi(config);

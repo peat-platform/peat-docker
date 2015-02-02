@@ -1,37 +1,21 @@
 /**
- * Created by akeating on 15/01/2015.
+ * Created by akeating on 16/1/2015.
  */
 
 
 'use strict';
 
 var swaggerDef = require('./main.js');
-var os = require('os');
-
-var m_handler_sink_addr; // Points to mongrel2
-var m_handler_source_addr = 'tcp://'+os.networkInterfaces().eth0[0].address+':49907';
-
 
 var config = {
    mongrel_handler : {
-      source : {
-         spec: m_handler_source_addr ,
-         bind:false, id:'b',
-         type:'pull',
-         isMongrel2:true
-      },
-      sink   : {
-         spec: m_handler_sink_addr ,
-         bind:false,
-         id:'c',
-         type:'pub',
-         isMongrel2:true
-      }
+      source : { spec:'tcp://127.0.0.1:49907', id:'g', bind:false, type:'pull', isMongrel2:true, error_handle:'tcp://127.0.0.1:49904' },
+      sink   : { spec:'tcp://127.0.0.1:49908', id:'h', bind:false, type:'pub',  isMongrel2:true }
    },
    logger_params : {
       'path'     : '/opt/openi/cloudlet_platform/logs/swagger-def',
-      'log_level': 'debug',
-      'as_json'  : false
+      'log_level': 'info',
+      'as_json'  : true
    }
 };
 

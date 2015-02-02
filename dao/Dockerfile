@@ -16,3 +16,6 @@ RUN sudo apt-get -y install librrd-dev python && \
 
 ADD docker-runner.js /dao/lib/
 
+WORKDIR /dao/lib/
+
+ENTRYPOINT ["node", "docker-runner.js"]
