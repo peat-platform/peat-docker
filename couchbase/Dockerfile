@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y openssh-server supervisor librtmp0 pyth
     dpkg -i couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb
 
 ADD bootstrap.sh /home/
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD confsed.lin64.gz /usr/local/sbin/confsed.gz
 
 RUN gzip -d /usr/local/sbin/confsed.gz

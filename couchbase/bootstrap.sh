@@ -3,6 +3,10 @@
 NODE_INT=`ip route | awk '/^default/ { print $5 }'`
 NODE_ADDR=`ip route | egrep "^[0-9].*$NODE_INT" | awk '{ print $9 }'`
 
+#cd /opt/couchbase
+#mkdir -p var/lib/couchbase var/lib/couchbase/config var/lib/couchbase/data \
+#      var/lib/couchbase/stats var/lib/couchbase/logs var/lib/moxi
+
 service couchbase-server start
 /bin/sleep 20
 
