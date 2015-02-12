@@ -6,7 +6,7 @@ CONT_LOG_PATH="/opt/openi/cloudlet_platform/logs/"
 CB_VOL_PATH="/home/openi/couchbase"
 
 #                 Container                                                                               Image
-docker run -d --name openicb -v $CB_VOL_PATH:/opt/couchbase/var -p 80:80 -p 443:443 -p 8091:8091  openiicteu/couchbase create
+docker run -d --name openicb -v $CB_VOL_PATH:/opt/couchbase/var -p 80:80 -p 443:443 -p 8091:8091  openiicteu/couchbase
 sleep 60
 docker run -d --name openidao            -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/dao
 docker run -d --name openicomms          -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/communications
