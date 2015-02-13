@@ -12,8 +12,7 @@ RUN sudo apt-get -y install librrd-dev python && \
     cd communications/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \
     sudo apt-get autoclean && \
-    sudo apt-get autoremove -y # && \
-#    npm install html-to-text
+    sudo apt-get autoremove -y && npm install html-to-text
 
 ADD docker-runner.js /communications/lib/
 
