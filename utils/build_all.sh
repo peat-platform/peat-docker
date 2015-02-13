@@ -9,8 +9,8 @@ docker build -t openiicteu/searchapi      search_api/
 docker build -t openiicteu/objectapi      object_api/
 docker build -t openiicteu/swaggerdef     swagger_def/
 docker build -t openiicteu/cloudletapi    cloudlet_api/
+docker build -t openiicteu/elasticsearch  elasticsearch/
 docker build -t openiicteu/notifications  notifications/
 docker build -t openiicteu/attachmentapi  attachment_api/
 docker build -t openiicteu/communications communications/
 docker build -t openiicteu/permissionsapi permissions_api/
-

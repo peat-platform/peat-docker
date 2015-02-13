@@ -15,6 +15,7 @@ RUN sudo apt-get -y install librrd-dev python && \
     sudo apt-get autoremove -y
 
 ADD docker-runner.js /dao/lib/
+ADD CBasehelper.js /dao/lib/
 
 WORKDIR /dao/lib/
 
