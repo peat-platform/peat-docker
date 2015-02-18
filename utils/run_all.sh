@@ -9,7 +9,7 @@ CB_VOL_PATH="/home/openi/couchbase"
 docker run -d --name openicb -v $CB_VOL_PATH:/opt/couchbase/var -p 8091:8091  openiicteu/couchbase
 sleep 60
 docker run -d --name openidao            -v $HOST_LOG_PATH:$CONT_LOG_PATH -p 80:80 -p 443:443 --link openicb:db   openiicteu/dao
-docker run -d --name openicomms          -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/communications
+#docker run -d --name openicomms          -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/communications
 docker run -d --name openinotifications  -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/notifications
 docker run -d --name openiauthapi        -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/authapi
 docker run -d --name openiattachmentapi  -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/attachmentapi
