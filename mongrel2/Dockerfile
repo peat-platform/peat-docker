@@ -12,7 +12,7 @@ RUN apt-get install -y libsqlite3-dev sqlite3 openssh-server build-essential uui
     tar -zxvf mongrel2-v1.9.1.tar.gz && cd  mongrel2-v1.9.1 && make install && \
     cd / && git clone https://github.com/OPENi-ict/mongrel2.git
 
-ADD cloudlet_platform.conf /mongrel2/
+ADD http_cloudlet_platform.conf /mongrel2/
 
 WORKDIR /mongrel2/
 
