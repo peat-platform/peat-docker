@@ -30,7 +30,7 @@ var init = function (logger_params) {
       logger = openiLogger(logger_params);
 
    if(cluster == undefined)
-      cluster = new couchbase.Cluster( 'couchbase://'+process.env.DB_PORT_8091_TCP_ADDR);
+      cluster = new couchbase.Cluster( 'couchbase://127.0.0.1');
 
    dbs['objects']     = cluster.openBucket('objects');
    dbs['types']       = cluster.openBucket('types');
