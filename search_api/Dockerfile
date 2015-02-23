@@ -7,7 +7,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49999 49911 49912
 
 # Install Search API
-RUN sudo apt-get -y install librrd-dev python && \
+RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
     git clone https://github.com/OPENi-ict/search_api.git && \
     cd search_api/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \

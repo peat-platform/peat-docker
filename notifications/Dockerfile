@@ -4,10 +4,10 @@ FROM openiicteu/cloudlet_core
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
 # Expose required ports
-EXPOSE 49500 49505 49506 49998
+EXPOSE 49500 49505 49506 49998 50000
 
 # Install Notifications
-RUN sudo apt-get -y install librrd-dev python && \
+RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
     git clone https://github.com/OPENi-ict/notifications.git && \
     cd notifications/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \

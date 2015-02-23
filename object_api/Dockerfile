@@ -7,7 +7,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49903 49999
 
 # Install Object API
-RUN sudo apt-get -y install librrd-dev python && \
+RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
     git clone https://github.com/OPENi-ict/object-api.git && \
     cd object-api/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \

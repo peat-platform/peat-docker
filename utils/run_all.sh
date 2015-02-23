@@ -8,8 +8,7 @@ CB_VOL_PATH="/home/openi/couchbase"
 #                 Container                                                                               Image
 docker run -d --name openicb -v $CB_VOL_PATH:/opt/couchbase/var -p 443:443 -p 80:80 -p 8091:8091  openiicteu/couchbase
 sleep 60
-docker run -d --name openidao            -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb  openiicteu/dao
-#docker run -d --name openicomms          -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openidao   openiicteu/communications
+docker run -d --name openidao            -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/dao
 docker run -d --name openinotifications  -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/notifications
 docker run -d --name openiauthapi        -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/authapi
 docker run -d --name openiattachmentapi  -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/attachmentapi
@@ -19,6 +18,8 @@ docker run -d --name openiswagger        -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=
 docker run -d --name openicloudletapi    -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/cloudletapi
 docker run -d --name openisearchapi      -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/searchapi
 docker run -d --name openitypeapi        -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/typeapi
+docker run -d --name openihttpswagger    -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/httpswaggerdef
+docker run -d --name openiredirect                                        --net=container:openicb   openiicteu/redirect
 docker run -d --name openimongrel2       -v $HOST_LOG_PATH:$CONT_LOG_PATH --net=container:openicb   openiicteu/mongrel2
 
 

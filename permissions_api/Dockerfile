@@ -8,7 +8,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49909 49910 49999
 
 # Install Permissions-api
-RUN sudo apt-get -y install librrd-dev python && \
+RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
     git clone https://github.com/OPENi-ict/permissions_api.git && \
     cd permissions_api/ && npm install && \
     sudo apt-get purge -y librrd-dev python gcc && \

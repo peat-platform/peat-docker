@@ -7,7 +7,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49901 49902 49999
 
 # Install Cloudlet API
-RUN sudo apt-get -y install librrd-dev python && \
+RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
     git clone https://github.com/OPENi-ict/cloudlet-api.git && \
     cd cloudlet-api/ && npm install && \
     sudo apt-get purge -y python gcc && \
