@@ -1,11 +1,5 @@
 #!/bin/sh
 
-C_LOG_PATH="/opt/openi/cloudlet_platform/logs/"
-
-CB_LOG_PATH="/opt/couchbase/var/lib/couchbase/logs/"
-
-M_LOG_PATH="/mongrel2/logs/"
-
 source conf
 
 #                 Container                                                                               Image

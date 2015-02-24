@@ -20,9 +20,8 @@ RUN apt-get update && apt-get install -y bash wget software-properties-common cu
     /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
     /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf/master && \
     mkdir /usr/share/elasticsearch/templates && \
+    wget https://raw.githubusercontent.com/couchbaselabs/elasticsearch-transport-couchbase/master/src/main/resources/couchbase_template.json -P /usr/share/elasticsearch/templates && \
     bash /opt/openi/configure.sh
-    #wget https://raw.githubusercontent.com/couchbaselabs/elasticsearch-transport-couchbase/master/src/main/resources/couchbase_template.json -P /usr/share/elasticsearch/templates && \
-    #bash /opt/openi/configure.sh
 
 ENTRYPOINT ["bash", "/opt/openi/setup.sh"]    
 

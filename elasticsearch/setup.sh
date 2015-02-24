@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CBASE_ADDR=localhost
+CBASE_ADDR=127.0.0.1
 
 sudo service elasticsearch start
 sudo service logstash start
