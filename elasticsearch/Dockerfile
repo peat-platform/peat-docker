@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y bash wget software-properties-common cu
     /usr/share/elasticsearch/bin/plugin -install transport-couchbase -url http://packages.couchbase.com.s3.amazonaws.com/releases/elastic-search-adapter/2.0.0/elasticsearch-transport-couchbase-2.0.0.zip && \
     /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
     /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf/master && \
-    mkdir /usr/share/elasticsearch/templates && \
     wget https://raw.githubusercontent.com/couchbaselabs/elasticsearch-transport-couchbase/master/src/main/resources/couchbase_template.json -P /usr/share/elasticsearch/templates && \
     bash /opt/openi/configure.sh
 

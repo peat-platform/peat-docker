@@ -3,9 +3,10 @@
 source conf
 
 #                 Container                                                                               Image
-docker run -d --name openicb -v $LOG_PATH:$CB_LOG_PATH -p 443:443 -p 80:80 -p 8091:8091  openiicteu/couchbase
+docker run -d --name openicb -v $LOG_PATH:$CB_LOG_PATH -p 9200:9200  -p 443:443 -p 80:80 -p 8091:8091  openiicteu/couchbase
 sleep 60
 docker run -d --name openidao            -v $LOG_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/dao
+docker run -d --name openies                                      --net=container:openicb   openiicteu/elasticsearch
 docker run -d --name openinotifications  -v $LOG_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/notifications
 docker run -d --name openiauthapi        -v $LOG_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/authapi
 docker run -d --name openiattachmentapi  -v $LOG_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/attachmentapi
