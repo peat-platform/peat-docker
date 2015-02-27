@@ -7,12 +7,7 @@ These images may then be ran together to provide a modularised Cloudlet Platform
 
 ### Installing Docker
 
-Docker must be installed to use openi-docker.
-Installation can be done through aptitude as follows:
-
-```bash
-apt-get install docker.io
-```
+Docker will be installed automatically in the setup script if using Ubuntu.
 
 However due to docker using features specific to linux, for both Windows and OSX the program Boot2Docker must be installed.
 Links to these are below: 
@@ -29,17 +24,39 @@ First pull or clone the project.
 git clone https://github.com/OPENi-ict/openi-docker.git
 ```
 
-Then build the docker images.
+Then configure the conf file, the two paths that must be changed are:
+- OUTPUT_PATH
+- CB_OUTPUT_PATH
+
+Then run OPENi Docker using the following command:
 
 ```bash
-cd openi-docker
-sh utils/build_all.sh
+bash setup.sh
 ```
 
-Finally run all of the images as containers.
+This will install docker if needed, setup the output paths and run the platform.
 
-```bash
-sh utils/run_all.sh
-```
+## Additional Steps
+
+A document in the db_keys bucket of couchbase must be created manually as couchbase does not supply REST endpoints for data manipulation within buckets.
+
+* Temporarily allow port 8091 using the firewall tool 'ufw'.
+* Navigate to the couchbase admin console <your ip address>:8091
+* Select 'documents' for the db_keys bucket.
+* Create an object named **dbkeys_29f81fe0-3097-4e39-975f-50c4bf8698c7** and Enter the following:
+
+~~~json   
+{
+  "dbs": [
+    "users",
+    "clients",
+    "authorizations",
+    "queries"
+  ]
+}
+~~~
+
+* Disable port 8091 using ufw.
+
 
  
