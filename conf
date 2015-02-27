@@ -1,7 +1,14 @@
+# log path for containers
 C_LOG_PATH="/opt/openi/cloudlet_platform/logs/"
 
+# output path for couchbase data incl. logs
 CB_PATH="/opt/couchbase/var/lib/couchbase/"
 
+# ouput path for mongrel2 logs
 M_LOG_PATH="/mongrel2/logs/"
 
-LOG_PATH="/home/akeating/Work/docker/logs/"
+# path on host to output container and mongrel 2 logs to
+OUTPUT_PATH="/home/akeating/Work/docker/logs/"
+
+# path on host to output couchbase data to
+CB_OUTPUT_PATH="/home/akeating/Work/docker/logs/cb"

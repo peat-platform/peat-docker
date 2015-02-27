@@ -1,6 +1,15 @@
 #!/bin/sh
 
-source conf
+source ./conf
+
+# Make sure output paths exist
+setup_paths()
+{
+   mkdir -p $OUTPUT_PATH
+   mkdir -p $CB_OUTPUT_PATH
+}
+
+setup_paths
 
 # Install Docker
 apt-get -y update
