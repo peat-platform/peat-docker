@@ -6,7 +6,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 # Install Redirect
 ADD https-redirect /https-redirect/
     
-RUN sudo apt-get -y install build-essential python && cd /https-redirect/ && npm install && \
+RUN apt-get -y update && sudo apt-get -y install build-essential python && cd /https-redirect/ && npm install && \
     sudo apt-get autoclean && \
     sudo apt-get autoremove -y
 
