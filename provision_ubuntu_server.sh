@@ -2,7 +2,6 @@
 
 source ./conf
 
-
 mkdir -p $OUTPUT_PATH
 mkdir -p $CB_OUTPUT_PATH
 
@@ -18,6 +17,10 @@ sudo apt-get install -y git curl sudo bash
 
 curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+newgrp docker
 
 sudo apt-get install ufw
 sudo ufw disable
