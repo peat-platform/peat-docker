@@ -14,7 +14,8 @@ RUN sudo apt-get -y update && apt-get install -y libsqlite3-dev sqlite3 openssh-
 
 ADD cloudlet_platform.conf /mongrel2/
 ADD start_mongrel2.sh /mongrel2/
+ADD certs /mongrel2/certs/
 
 WORKDIR /mongrel2/
 
-ENTRYPOINT ["sh", "start_mongrel2.sh"]
+#ENTRYPOINT ["sh", "start_mongrel2.sh"]
