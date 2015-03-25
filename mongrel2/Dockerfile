@@ -18,4 +18,4 @@ ADD certs /mongrel2/certs/
 
 WORKDIR /mongrel2/
 
-#ENTRYPOINT ["sh", "start_mongrel2.sh"]
+ENTRYPOINT ["sh", "start_mongrel2.sh"]
