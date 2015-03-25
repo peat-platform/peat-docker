@@ -6,13 +6,15 @@ source ./conf
 mkdir -p $OUTPUT_PATH
 mkdir -p $CB_OUTPUT_PATH
 
-echo "ubuntu:$PASS" | chpasswd
+echo "ubuntu:$PASS"
+
+echo "ubuntu:$PASS" | sudo chpasswd
 
 sudo sed -i -e 's/ubuntu ALL=(ALL) NOPASSWD:ALL/ubuntu ALL=(ALL:ALL) ALL/g' /etc/sudoers.d/90-cloud-init-users
 
-apt-get update -q
+sudo apt-get update -q
 
-apt-get install -y git curl sudo bash
+sudo apt-get install -y git curl sudo bash
 
 curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
@@ -31,14 +33,13 @@ sudo ufw allow out to any port 443
 sudo ufw allow out to any port 9418
 sudo ufw enable
 
-echo y | ufw enable
+echo y | sudo ufw enable
 
-apt-get install -y fail2ban
+sudo apt-get install -y fail2ban
 
 sudo apt-get install -y logwatch
 
- sudo sed -i -e 's/\/usr\/sbin\/logwatch --output mail/\/usr\/sbin\/logwatch --output mail --mailto $LOGWATCH_EMAIL --detail high/g' /etc/cron.daily/00logwatch
+sudo sed -i -e 's/\/usr\/sbin\/logwatch --output mail/\/usr\/sbin\/logwatch --output mail --mailto $LOGWATCH_EMAIL --detail high/g' /etc/cron.daily/00logwatch
 
-/usr/sbin/logwatch --output mail --mailto $LOGWATCH_EMAIL --detail high
 
 source ~/.bashrc
