@@ -28,6 +28,15 @@ Then configure the conf file, the two paths that must be changed are:
 - OUTPUT_PATH
 - CB_OUTPUT_PATH
 
+
+Before you build the platform and to improve your Ubuntu servers security run the following command. Note the default users password
+will be changed to the PASS value as set in the conf file. Logwatch send daily emails with system log information, set LOGWATCH_EMAIL
+to you sysadmins.
+
+```bash
+bash provision_ubuntu_server.sh
+```
+
 Then run OPENi Docker using the following command:
 
 ```bash
