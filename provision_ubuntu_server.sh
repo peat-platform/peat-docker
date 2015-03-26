@@ -15,7 +15,11 @@ sudo apt-get update -q
 
 sudo apt-get install -y git curl sudo bash
 
+sudo apt-get -y install linux-image-extra-$(uname -r)
+
 curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+
+sudo service docker restart
 
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker

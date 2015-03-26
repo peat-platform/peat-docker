@@ -16,7 +16,7 @@ ADD confsed.lin64.gz /usr/local/sbin/confsed.gz
 RUN gzip -d /usr/local/sbin/confsed.gz
 RUN chmod 755 /usr/local/sbin/confsed
 
-ENTRYPOINT ["bash", "/home/bootstrap.sh"]
+#ENTRYPOINT ["bash", "/home/bootstrap.sh"]
 
     
 
