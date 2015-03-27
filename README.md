@@ -12,11 +12,13 @@ According to docker.com
 
 >Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, IT can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.
 
-In short docker can be thought of as light-weight virtual machines. These machines are defined using a Dockerfile, which is a set of rules that are used to build a docker "image". Docker images can be thought of as a blueprint for a virtual machine, a docker image is static, it can not run any processes, it is similar to a powered of computer.
+In short docker can be thought of as a platform for hosting light-weight virtual machines. These machines are defined using a Dockerfile, which is a set of rules that are used to build a docker "image". Docker images can be thought of as a blueprint for a virtual machine, a docker image is static, it can not run any processes, it is similar to a powered of computer.
 
 To run processed on a docker image you must create a docker "container", this allows a user to run a single main process on a machine, once this process is completed the container will die. This is part of the docker philosophy, each container should only do one specific task.
 
-It is important to note for developers that the main docker process cannot be a daemon process, this will cause the docker container to dir immediately, the main process must run in the foreground.
+It is important to note for developers that the main docker process cannot be a daemon process, this will cause the docker container to die immediately, the main process must run in the foreground.
+
+Dockers advantages over actual virtual machines are its speed (starting a new container can take less than a second in some cases compared to minutes for a new virtual machine) and space efficiency (if 10 containers are based off of the image 'ubuntu:14.04' and 'ubuntu:14.04' is 100mb then all 10 containers will still only take up 100mb).
 
 A video introduction to Docker can be found [here](https://youtu.be/ZzQfxoMFH0U)
 
@@ -119,6 +121,12 @@ Now all of the images will run as containers on your system, after this script c
 You can edit the code rather easily, the Dockerfile syntax is explained clearly on the Docker website.
 
 ## Common issues
+### I followed the Boot2Docker tutorial but I am not in a Boot2Docker prompt
+This may be because you never entered the Boot2Docker prompt, try calling ```boot2docker ssh``` 
+from the command prompt/terminal. 
+
+If this does not fix your problem check that a Boot2Docker virtual machine is running in VirtualBox.
+
 ### That name already exists
 
 This more than likely means you are attempting to run a second container with an already existing ```--name``` tag. Either do a ```sudo docker rm -f $CONTAINER_NAME``` and then run the other container or run the second container with a unique ```--name``` tag.
