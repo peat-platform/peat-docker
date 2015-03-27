@@ -1,71 +1,136 @@
-# openi-docker
+# The OPENi docker guide
+This guide aims to aid a user in downloading, installing, updating and contributing to OPENi docker.
+It aims to answer a series of questions, these are:
+* What is docker?
+* What is OPENi docker?
+* How do I install docker?
+* How do I install OPENi docker?
+* How do I edit docker code?
 
-openi-docker divides the Cloudlet Platforms components into docker images.
-These images may then be ran together to provide a modularised Cloudlet Platform.
+## What is docker?
+According to docker.com
 
-## Getting started
+>Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool, and Docker Hub, a cloud service for sharing applications and automating workflows, Docker enables apps to be quickly assembled from components and eliminates the friction between development, QA, and production environments. As a result, IT can ship faster and run the same app, unchanged, on laptops, data center VMs, and any cloud.
 
-### Installing Docker
+In short docker can be thought of as light-weight virtual machines. These machines are defined using a Dockerfile, which is a set of rules that are used to build a docker "image". Docker images can be thought of as a blueprint for a virtual machine, a docker image is static, it can not run any processes, it is similar to a powered of computer.
 
-Docker will be installed automatically in the setup script if using Ubuntu.
+To run processed on a docker image you must create a docker "container", this allows a user to run a single main process on a machine, once this process is completed the container will die. This is part of the docker philosophy, each container should only do one specific task.
 
-However due to docker using features specific to linux, for both Windows and OSX the program Boot2Docker must be installed.
-Links to these are below: 
-- [OSX](https://github.com/boot2docker/osx-installer/releases/tag/v1.4.1)
-- [Windows](https://github.com/boot2docker/windows-installer/releases/tag/v1.4.1)
+It is important to note for developers that the main docker process cannot be a daemon process, this will cause the docker container to dir immediately, the main process must run in the foreground.
 
-Installation guides for other OS's may be found [here](https://docs.docker.com/installation/)
+A video introduction to Docker can be found [here](https://youtu.be/ZzQfxoMFH0U)
 
-### Using openi-docker
+## What is OPENi docker?
+OPENi docker is an attempt to take the OPENi project and run it upon docker, this required splitting the platform into individual docker images and running each image as a container, the containers must then link together to form a network of docker containers that can allow ZeroMQ and database communications between them.
 
-First pull or clone the project.
+As of the 27th March there are over 17 images in the OPENi docker project, each of these images house a single task that the OPENi project performs. Most of these images can be completely self contained at run-time, however a few  of them (namely the database) must persist data outside of the running docker containers so that if the containers die the data stored inside the database is not lost.
 
-```bash
-git clone https://github.com/OPENi-ict/openi-docker.git
-```
+## How do I install docker?
+![One does not simply install docker](http://i.imgur.com/nFGC7lK.jpg)
 
-Then configure the conf file, the two paths that must be changed are:
-- OUTPUT_PATH
-- CB_OUTPUT_PATH
+(Note this is performed with the provisioning script in OPENi docker for Ubuntu)
 
+Docker required linux specific components to work, because of this Docker must be installed differently on different machines.
 
-Before you build the platform and to improve your Ubuntu servers security run the following command. Note the default users password
-will be changed to the PASS value as set in the conf file. Logwatch send daily emails with system log information, set LOGWATCH_EMAIL
-to you sysadmins.
+### Ubuntu
+If you are using Ubuntu it is quite simple to install docker, first you must install AUFS so that you don't run into any issues with the devicemapper storage system. 
 
-```bash
-bash provision_ubuntu_server.sh
-```
-
-Then run OPENi Docker using the following command:
+The reason for installing AUFS is that devicemapper causes errors on Ubuntu for reasons that are beyond all of us. To install AUFS run the following script.
 
 ```bash
-bash setup.sh
+sudo apt-get -y install linux-image-extra-$(uname -r)
 ```
 
-This will install docker if needed, setup the output paths and run the platform.
+Then run the following script to install Ubuntu.
 
-## Additional Steps
+```bash
+$ wget -qO- https://get.docker.com/ | sh
+```
 
-A document in the db_keys bucket of couchbase must be created manually as couchbase does not supply REST endpoints for data manipulation within buckets.
+You now have docker installed!
 
-* Temporarily allow port 8091 using the firewall tool 'ufw'.
-* Navigate to the couchbase admin console <your ip address>:8091
-* Select 'documents' for the db_keys bucket.
-* Create an object named **dbkeys_29f81fe0-3097-4e39-975f-50c4bf8698c7** and Enter the following:
+### OSX and Windows
+As mentioned earlier Docker requires linux specific features, because of this it will not run natively on Windows or OSX, however there are solutions to this.
 
-~~~json   
-{
-  "dbs": [
-    "users",
-    "clients",
-    "authorizations",
-    "queries"
-  ]
-}
-~~~
+#### OSX
+OSX users have two options, the Boot2Docker option or the new Kitematic option. Both of these have advantages however the choice can be easily decided by looking at the two options.
 
-* Disable port 8091 using ufw.
+Kitematic is a GUI based application for OSX. It allows its users to search the Docker public repository, DockerHub, for images and then download and run them as containers. This has the advantages of being quick and simple however it does not allow for the vast docker tools to be utilised fully (also you don't get to look like a hacker because you don't use a real terminal)
+![Kitematic GUI](https://blog.docker.com/media/Screenshot-2015-02-23-16.27.27.jpg)
 
+You can install Kitematic from the following link.
 
- 
+[https://kitematic.com](https://kitematic.com)
+
+The next option is Boot2Docker, this is in essence a light-weight linux virual machine running on virtualbox with Docker installed on it. This allows full use of docker from a terminal, because of this I would recommend it.
+
+To install Boot2Docker follow the following link.
+
+[https://docker.com](https://docs.docker.com/installation/mac/#command-line-docker-with-boot2docker)
+
+#### Windows
+
+For Windows there is only one option, Boot2Docker, the installation instructions are below.
+
+[https://docker.com](https://docs.docker.com/installation/windows/)
+
+#### Others
+
+For all other Operating systems installation notes can be found on the docker website.
+
+## How do I install OPENi docker?
+
+There are a small number of steps involved in installing OPENi docker.
+
+First pull the git repository.
+
+```bash
+git clone www.github.com/OPENi-ict/openi-docker.git
+```
+
+Then you can either build the images or download them. The rule of thumb of this choice is that if you have high internet speed then download them, else build them.
+
+To download the images run. (If no $VERSION then leave it out to download latest)
+
+```bash
+cd openi-docker/
+sudo bash utils/pull_all.sh $VERSION
+```
+
+To install the images run.
+
+```bash
+cd openi-docker/
+sudo bash utils/build_all.sh
+```
+
+Then to run the OPENi platform you must edit the ``` conf ``` file, all but the first two variables ```C_LOG_PATH``` and ```M_LOG_PATH``` should be changed. You can also add your own certs into the ```mongrel2/certs/``` path.
+
+Finally you can actually run the platform.
+
+```bash
+sudo bash utils/run_all.sh
+```
+
+Now all of the images will run as containers on your system, after this script completes go to ```http://localhost``` and you should see a running OPENi platform.
+
+## How do I edit OPENi docker code?
+
+You can edit the code rather easily, the Dockerfile syntax is explained clearly on the Docker website.
+
+## Common issues
+### That name already exists
+
+This more than likely means you are attempting to run a second container with an already existing ```--name``` tag. Either do a ```sudo docker rm -f $CONTAINER_NAME``` and then run the other container or run the second container with a unique ```--name``` tag.
+
+### Error mounting /dev/mapper/
+
+This means that you are using the ```devicemapper``` storage driver. To confirm this run ```sudo docker info``` and look for ```Storage Driver:```. If it says "devicemapper" then you need to install AUFS and restart the docker daemon.
+
+```bash
+sudo apt-get -y install linux-image-extra-$(uname -r)
+sudo service docker restart
+```
+
+Rerun ```docker info``` and make sure it says aufs where it used to say devicemapper.
+
