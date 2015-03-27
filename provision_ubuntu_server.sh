@@ -21,6 +21,8 @@ curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
 sudo service docker restart
 
+sudo bash setup.sh
+
 sudo apt-get install ufw
 sudo ufw disable
 sudo ufw default deny incoming
