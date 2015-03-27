@@ -1,4 +1,5 @@
 # The OPENi docker guide
+![Front cover](http://cdn.meme.am/instances/500x/55545716.jpg)
 This guide aims to aid a user in downloading, installing, updating and contributing to OPENi docker.
 It aims to answer a series of questions, these are:
 * What is docker?
