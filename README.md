@@ -154,3 +154,16 @@ sudo service docker restart
 
 Rerun ```docker info``` and make sure it says aufs where it used to say devicemapper.
 
+## Questions that might come up
+### What is that --net command doing in run_all.sh?
+That is networking the docker containers through a single docker interface,
+this is a temporary fix until a tool like Weave, Triton or SocketPlane can fully support the container networking that we need.
+To add another container to this just follow the same template as the other containers and use ```--net=container:openicb```
+
+### Is there an easy way to look inside my container?
+You can use ```-it``` instead of ```-d``` for the docker run command to see the output from any code ran inside, however
+this is quite limited.
+
+You can also emulate a bash prompt by setting the ```ENTRYPOINT``` of the image to be ```bash``` and then running the 
+containers with ```-it```. For example ```sudo docker run -it ubuntu bash```.
+
