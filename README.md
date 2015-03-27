@@ -82,7 +82,17 @@ For all other Operating systems installation notes can be found on the docker we
 
 ## How do I install OPENi docker?
 
-There are a small number of steps involved in installing OPENi docker.
+If you're on ubuntu it's easy.
+
+```bash
+git clone www.github.com/OPENi-ict/openi-docker.git
+cd openi-docker/
+sudo bash provision_ubuntu_server.sh
+```
+
+You're done! Visit the IP address of the machine in your browser.
+
+There are a small number of steps involved in installing OPENi docker without the provision script.
 
 First pull the git repository.
 
