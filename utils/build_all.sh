@@ -1,6 +1,7 @@
 #!/bin/sh
 
 docker build -t openiicteu/dao:0.5.0             dao/
+docker build -t openiicteu/dao_proxy:0.5.0       dao_proxy/
 docker build -t openiicteu/authapi:0.5.0         auth_api/
 docker build -t openiicteu/typeapi:0.5.0         type_api/
 docker build -t openiicteu/redirect:0.5.0        redirect/

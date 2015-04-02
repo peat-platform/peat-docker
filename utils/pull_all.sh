@@ -3,7 +3,8 @@
 function download_version ()
 {
 	echo "Downloading OPENi $1"
-	sudo docker pull openiicteu/dao:"$1"             
+	sudo docker pull openiicteu/dao:"$1"
+	sudo docker pull openiicteu/dao_proxy:"$1"
 	sudo docker pull openiicteu/authapi:"$1"         
 	sudo docker pull openiicteu/typeapi:"$1"         
 	sudo docker pull openiicteu/redirect:"$1"        
