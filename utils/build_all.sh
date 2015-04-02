@@ -17,3 +17,4 @@ docker build -t openiicteu/attachmentapi:0.5.0   attachment_api/
 docker build -t openiicteu/permissionsapi:0.5.0  permissions_api/
 docker build -t openiicteu/httpswaggerdef:0.5.0  http_swagger_def/
 docker build -t openiicteu/admin-dashboard:0.5.0 admin-dashboard/
+docker build -t openiicteu/user-dashboard:0.5.0  user-dashboard/

@@ -20,6 +20,7 @@ function download_version ()
 	sudo docker pull openiicteu/permissionsapi:"$1" 
 	sudo docker pull openiicteu/httpswaggerdef:"$1"
 	sudo docker pull openiicteu/admin-dashboard:"$1"
+	sudo docker pull openiicteu/user-dashboard:"$1"
 }
 
 function list_args
