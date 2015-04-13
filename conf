@@ -11,7 +11,7 @@ M_LOG_PATH="/mongrel2/logs/"
 OUTPUT_PATH="/opt/openi/docker/logs/"
 
 # path on host to output couchbase data to
-CB_OUTPUT_PATH="/opt/openi/docker/logs/cb"
+CB_OUTPUT_PATH="/opt/openi/docker/couchbase_data"
 
 PASS=please_change_me
 
