@@ -25,6 +25,5 @@ docker run -d --name openiauthdialogs                                --net=conta
 docker run -d --name openidao            -v $OUTPUT_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/dao
 docker run -d --name openimongrel2       -v $OUTPUT_PATH:$M_LOG_PATH --net=container:openicb   openiicteu/mongrel2
 
-docker run -i --name openidao            -v /opt/openi/docker/logs/:/opt/openi/cloudlet_platform/logs --net=container:openicb   openiicteu/dao
 
 
