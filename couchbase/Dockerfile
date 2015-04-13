@@ -18,7 +18,6 @@ RUN wget -O- http://packages.couchbase.com/ubuntu/couchbase.key | sudo apt-key a
 
 ADD bootstrap.sh /home/
 ADD confsed.lin64.gz /usr/local/sbin/confsed.gz
-ADD security_framework_init.js /home/
 ADD populate_views.sh /home/
 
 RUN gzip -d /usr/local/sbin/confsed.gz
