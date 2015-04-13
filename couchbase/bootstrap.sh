@@ -29,6 +29,7 @@ if [ ! -d "/opt/couchbase/var/lib/couchbase/data/attachments/" ]; then
    sudo apt-get install -y libcouchbase
    npm install couchbase
    node security_framework_init.js
+   bash populate_views.sh
    echo "REMOVING NODE MODULES FOR COUCHNODE"
    rm -r node_modules
 fi
