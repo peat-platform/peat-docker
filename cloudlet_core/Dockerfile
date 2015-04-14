@@ -6,7 +6,7 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 
 RUN mkdir -p /opt/openi/cloudlet_platform/logs && \                                                                       
     apt-get update -y && \                                                                                           
-    apt-get -y install git wget build-essential g++ uuid-dev binutils libtool autoconf automake libssl-dev apache2-utils python&& \
+    apt-get -y install git wget build-essential g++ uuid-dev binutils libtool autoconf automake libssl-dev apache2-utils python librrd-dev && \
     cd /tmp && \ 
     wget http://download.zeromq.org/zeromq-4.0.5.tar.gz && \ 
     tar -zxvf zeromq-4.0.5.tar.gz && \        
@@ -22,9 +22,10 @@ RUN mkdir -p /opt/openi/cloudlet_platform/logs && \
     make && \ 
     make install && \                                      
     npm -g install npm@latest && \ 
-    rm -rf /tmp/* && \                                                                  
-    apt-get purge -y g++ uuid-dev binutils libtool autoconf automake libssl-dev apache2-utils build-essential python && \
-    apt-get -y clean autoclean && \ 
+    rm -rf /tmp/* && \
+    ldconfig
+
+RUN apt-get -y clean autoclean && \
     apt-get -y autoremove
 
 

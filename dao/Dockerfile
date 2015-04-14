@@ -7,12 +7,8 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49997 49902 49904 49906 49500 5984
 
 # Install DAO
-RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
-    git clone https://github.com/OPENi-ict/dao.git && \
-    cd dao/ && npm install && \
-    sudo apt-get purge -y librrd-dev python gcc && \
-    sudo apt-get autoclean && \
-    sudo apt-get autoremove -y
+RUN git clone https://github.com/OPENi-ict/dao.git
+RUN cd dao/ && npm install
 
 ADD docker-runner.js /dao/lib/
 

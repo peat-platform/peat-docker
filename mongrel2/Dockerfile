@@ -15,7 +15,6 @@ RUN sudo apt-get -y update && apt-get install -y libsqlite3-dev sqlite3 curl ope
 ADD cloudlet_platform.conf /mongrel2/
 ADD start_mongrel2.sh /mongrel2/
 ADD certs /mongrel2/certs/
-ADD populate_couchbase_views.sh /mongrel2/
 
 WORKDIR /mongrel2/
 

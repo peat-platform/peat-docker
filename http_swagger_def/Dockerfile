@@ -7,12 +7,8 @@ MAINTAINER Aiden Keating <akeating@tssg.org>
 EXPOSE 49908 49907
 
 # Install Swagger Def
-RUN sudo apt-get -y update && sudo apt-get -y install librrd-dev python && \
-    git clone https://github.com/OPENi-ict/swagger-def.git && \
-    cd swagger-def/ && npm install && \
-    sudo apt-get purge -y librrd-dev python gcc && \
-    sudo apt-get autoclean && \
-    sudo apt-get autoremove -y
+RUN git clone https://github.com/OPENi-ict/swagger-def.git
+RUN cd swagger-def/ && npm install
 
 ADD docker-runner.js /swagger-def/lib/
 
