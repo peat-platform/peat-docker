@@ -19,3 +19,6 @@ docker build -t openiicteu/permissionsapi  permissions_api/
 docker build -t openiicteu/httpswaggerdef  http_swagger_def/
 docker build -t openiicteu/admin-dashboard admin-dashboard/
 docker build -t openiicteu/user-dashboard  user-dashboard/
+
+
+docker build -t openiicteu/cloudlet_platform  cloudlet_platform/

@@ -1,12 +1,7 @@
 #!/bin/sh
 
-source conf
 
-#                 Container                                                                               Image
-docker run -d --name openicb -v $CB_OUTPUT_PATH:$CB_PATH -p 80:80 -p 443:443 -p 9200:9200 -p 8091:8091  openiicteu/couchbase
 sleep 60
-docker run -d --name openidao_proxy                                  --net=container:openicb   openiicteu/dao_proxy
-sleep 4
 docker run -d --name openies                                         --net=container:openicb   openiicteu/elasticsearch
 docker run -d --name openinotifications  -v $OUTPUT_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/notifications
 docker run -d --name openiauthapi        -v $OUTPUT_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/authapi
@@ -23,7 +18,6 @@ docker run -d --name openiadmindash                                  --net=conta
 docker run -d --name openiuserdash                                   --net=container:openicb   openiicteu/user-dashboard
 docker run -d --name openiauthdialogs                                --net=container:openicb   openiicteu/auth-dialogs
 docker run -d --name openidao            -v $OUTPUT_PATH:$C_LOG_PATH --net=container:openicb   openiicteu/dao
-docker run -d --name openimongrel2       -v $OUTPUT_PATH:$M_LOG_PATH --net=container:openicb   openiicteu/mongrel2
 
 
 
