@@ -52,8 +52,12 @@ case 'openi_rrd':
    break;
 case 'https_redirect':
    worker = './https_redirect.js'
+   workerMainFunction = require(worker);
+   break;
 case 'swagger_def':
    worker = 'swagger-def'
+   workerMainFunction = require(worker);
+   break;
 default:
    workerMainFunction = require(worker);
    break;
