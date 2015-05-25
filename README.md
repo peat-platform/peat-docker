@@ -1,5 +1,4 @@
 # The OPENi docker guide
-![Front cover](http://cdn.meme.am/instances/500x/56920837.jpg)
 
 This guide aims to aid a user in downloading, installing, updating and contributing to OPENi docker.
 It aims to answer a series of questions, these are:
@@ -30,7 +29,6 @@ OPENi docker is an attempt to take the OPENi project and run it upon docker, thi
 As of the 27th March there are over 17 images in the OPENi docker project, each of these images house a single task that the OPENi project performs. Most of these images can be completely self contained at run-time, however a few  of them (namely the database) must persist data outside of the running docker containers so that if the containers die the data stored inside the database is not lost.
 
 ## How do I install docker?
-![One does not simply install docker](http://i.imgur.com/nFGC7lK.jpg)
 
 (Note this is performed with the provisioning script in OPENi docker for Ubuntu)
 
@@ -60,7 +58,6 @@ As mentioned earlier Docker requires linux specific features, because of this it
 OSX users have two options, the Boot2Docker option or the new Kitematic option. Both of these have advantages however the choice can be easily decided by looking at the two options.
 
 Kitematic is a GUI based application for OSX. It allows its users to search the Docker public repository, DockerHub, for images and then download and run them as containers. This has the advantages of being quick and simple however it does not allow for the vast docker tools to be utilised fully (also you don't get to look like a hacker because you don't use a real terminal)
-![Kitematic GUI](https://blog.docker.com/media/Screenshot-2015-02-23-16.27.27.jpg)
 
 You can install Kitematic from the following link.
 
