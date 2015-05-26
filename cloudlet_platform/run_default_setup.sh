@@ -6,8 +6,8 @@
 source conf
 
 #                 Container                                                                               Image
-docker run -d --name openicb        -v $COUCHBASE_DATA_PATH:/opt/couchbase/var/lib/couchbase/ -p 80:80 -p 443:443 -p 9200:9200 -p 8091:8091  openiicteu/couchbase
-sleep 20
+docker run -d --name openicb        -v $COUCHBASE_DATA_PATH:/opt/couchbase/var/lib/couchbase/ -p 80:80 -p 443:443 -p 9200:9200 -p 8091:8091 -p 8092:8092 openiicteu/couchbase
+sleep 30
 docker run -d --name openies                                         --net=container:openicb   openiicteu/elasticsearch
 
 docker run -d --name openidao_proxy                                                           --net=container:openicb  openiicteu/cloudlet_platform  -w dao_proxy -c '{ "frontend"      : "tcp://127.0.0.1:49999", "backend"       : "tcp://127.0.0.1:49997"}'
