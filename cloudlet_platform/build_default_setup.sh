@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo npm install -g JSON.sh
+
 
 docker build -t openiicteu/cloudlet_core   cloudlet_core/
 docker build -t openiicteu/mongrel2        mongrel2/
