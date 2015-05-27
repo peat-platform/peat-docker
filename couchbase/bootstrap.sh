@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 NODE_INT=`ip route | awk '/^default/ { print $5 }'`
 NODE_ADDR=`ip route | egrep "^[0-9].*$NODE_INT" | awk '{ print $9 }'`
 
