@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sudo npm install -g JSON.sh
+git clone https://github.com/dominictarr/JSON.sh.git && sudo cp -f JSON.sh/JSON.sh json.sh
+chmod +x json.sh
 
 
 docker build -t openiicteu/cloudlet_core   cloudlet_core/
