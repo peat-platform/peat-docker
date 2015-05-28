@@ -12,7 +12,6 @@ RUN sudo apt-get -y update && sudo apt-get install -y build-essential redis-serv
     sudo apt-get autoremove -y
 
 
-ADD run.sh /
+WORKDIR /openi-auth-dialogs/bin/
 
-
-ENTRYPOINT ["bash", "/run.sh"]
+ENTRYPOINT ["node", "www"]
