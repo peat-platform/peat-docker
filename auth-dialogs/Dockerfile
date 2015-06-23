@@ -9,9 +9,11 @@ RUN sudo apt-get -y update && sudo apt-get install -y build-essential redis-serv
     cd openi-auth-dialogs/ && npm install && \
     sudo apt-get purge -y python gcc && \
     sudo apt-get autoclean && \
-    sudo apt-get autoremove -y
+    sudo apt-get autoremove -y && \
+
+
 
 
 WORKDIR /openi-auth-dialogs/bin/
 
-ENTRYPOINT ["node", "www"]
+ENTRYPOINT ["redis-server && node", "www"]
