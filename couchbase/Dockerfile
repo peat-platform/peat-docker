@@ -3,7 +3,7 @@
 FROM ubuntu:14.04
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
-EXPOSE 11210 8091 8092 9091
+EXPOSE 11210 11207 8091 8092 8093 9091
 
 # Some of those installed programs will not be needed
 RUN apt-get update && apt-get install -y curl nodejs npm openssh-server supervisor librtmp0 python2.7 python-httplib2 xdotool wget git software-properties-common python-software-properties && \

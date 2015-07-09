@@ -11,6 +11,6 @@ RUN sudo apt-get -y update && sudo apt-get install -y build-essential python && 
     sudo apt-get autoclean && \
     sudo apt-get autoremove -y
 
-WORKDIR /user-dashboard/bin/
+WORKDIR /user-dashboard/
 
-ENTRYPOINT ["node", "www"]
+ENTRYPOINT ["node", "bin/www"]
