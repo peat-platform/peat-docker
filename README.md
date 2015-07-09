@@ -112,7 +112,7 @@ To install the images run.
 
 ```bash
 cd openi-docker/
-sudo bash utils/build_all.sh
+sh cloudlet_platform/build_default_setup.sh
 ```
 
 Then to run the OPENi platform you must edit the ``` conf ``` file, all but the first two variables ```C_LOG_PATH``` and ```M_LOG_PATH``` should be changed. You can also add your own certs into the ```mongrel2/certs/``` path.
@@ -120,7 +120,7 @@ Then to run the OPENi platform you must edit the ``` conf ``` file, all but the 
 Finally you can actually run the platform.
 
 ```bash
-sudo bash utils/run_all.sh
+sh cloudlet_platform/run_default_setup.sh 
 ```
 
 Now all of the images will run as containers on your system, after this script completes go to ```http://localhost``` and you should see a running OPENi platform.
