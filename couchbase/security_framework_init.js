@@ -17,6 +17,6 @@ var create = function() {
          console.log('Success: ', 'Document Created.')
          process.exit(code=0)
       });
-}
+};
 
 create();

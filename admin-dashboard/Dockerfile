@@ -12,6 +12,6 @@ RUN sudo apt-get -y update && sudo apt-get install -y build-essential python && 
     sudo apt-get autoremove -y
 
 
-WORKDIR /admin-dashboard/bin/
+WORKDIR /admin-dashboard
 
-ENTRYPOINT ["node", "www"]
+ENTRYPOINT ["node", "bin/www"]

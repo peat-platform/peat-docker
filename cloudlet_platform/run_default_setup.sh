@@ -6,6 +6,7 @@ source conf
 
 dao_proxy=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["dao_proxy"*"\]' | sed -e 's/\[\"dao_proxy\"\]//g')
 dao=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["dao"*"\]' | sed -e 's/\[\"dao\"\]//g')
+perms_propagator=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["perms_propagator_b"*"\]' | sed -e 's/\[\"perms_propagator_b\"\]//g')
 swagger_def_https=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["swagger_def_https"*"\]' | sed -e 's/\[\"swagger_def_https\"\]//g')
 swagger_def_http=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["swagger_def_http"*"\]' | sed -e 's/\[\"swagger_def_http\"\]//g')
 type_api=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["type_api"*"\]' | sed -e 's/\[\"type_api\"\]//g')
@@ -29,6 +30,7 @@ docker run -d --name openies                                         --net=conta
 
 docker run -d --name openidao_proxy --net=container:openicb  openiicteu/cloudlet_platform 	-w dao_proxy            -c "$dao_proxy"
 sleep 4
+docker run -d --name openiperms_proxy --net=container:openicb openiicteu/cloudlet_platform 	-w perms_prop_worker    -c "$perms_propagator"
 
 docker run -d --name dao_1    -v $LOG_OUTPUT_PATH_ROOT:/opt/openi/cloudlet_platform/logs/     --net=container:openicb	openiicteu/cloudlet_platform 	-w dao                  -c "$dao"
 docker run -d --name dao_2    -v $LOG_OUTPUT_PATH_ROOT:/opt/openi/cloudlet_platform/logs/     --net=container:openicb	openiicteu/cloudlet_platform 	-w dao                  -c "$dao"
