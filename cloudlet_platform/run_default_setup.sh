@@ -24,7 +24,7 @@ openi_aggregator=$( cat cloudlet_platform/conf.json | json.sh -p | egrep '\["ope
 
 
 #                 Container                                                                               Image
-docker run -d --name openicb        -v $COUCHBASE_DATA_PATH:/opt/couchbase/var/lib/couchbase/ -p 80:80 -p 443:443 -p 9200:9200 -p 8091:8091 -p 8092:8092 -p 8093:8093 openiicteu/couchbase
+docker run -d --name openicb        -v $COUCHBASE_DATA_PATH:/opt/couchbase/var/lib/couchbase/ -p 80:80 -p 443:443 -p 9200:9200 -p 8091:8091 -p 8092:8092 -p 8093:8093 -p 8443:8443 openiicteu/couchbase
 sleep 30
 docker run -d --name openies                                         --net=container:openicb	openiicteu/elasticsearch
 
