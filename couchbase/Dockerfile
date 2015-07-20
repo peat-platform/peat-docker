@@ -3,12 +3,12 @@
 FROM ubuntu:14.04
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
-EXPOSE 11210 8091 8092 9091
+EXPOSE 11210 11207 8091 8092 8093 9091
 
 # Some of those installed programs will not be needed
-RUN apt-get update && apt-get install -y curl nodejs npm openssh-server supervisor librtmp0 python-httplib2 xdotool wget software-properties-common python-software-properties && \
-    wget --quiet http://packages.couchbase.com/releases/3.0.0/couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb && \
-    dpkg -i couchbase-server-enterprise_3.0.0-ubuntu12.04_amd64.deb
+RUN apt-get update && apt-get install -y curl nodejs npm openssh-server supervisor librtmp0 python2.7 python-httplib2 xdotool wget git software-properties-common python-software-properties && \
+    wget --quiet http://latestbuilds.hq.couchbase.com/couchbase-server/sherlock/3133/couchbase-server-enterprise_4.0.0-3133-ubuntu14.04_amd64.deb && \
+    dpkg -i couchbase-server-enterprise_4.0.0-3133-ubuntu14.04_amd64.deb
 
 RUN wget -O- http://packages.couchbase.com/ubuntu/couchbase.key | sudo apt-key add - && \ 
     sudo wget -O/etc/apt/sources.list.d/couchbase.list \
@@ -23,7 +23,8 @@ ADD security_framework_init.js /home/
 RUN gzip -d /usr/local/sbin/confsed.gz
 RUN chmod 755 /usr/local/sbin/confsed
 
-ENTRYPOINT ["bash", "/home/bootstrap.sh"]
+
+ENTRYPOINT ["/home/bootstrap.sh"]
 
     
 
