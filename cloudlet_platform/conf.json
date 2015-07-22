@@ -35,7 +35,7 @@
          "type": "pull"
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/dao",
+         "path": "/opt/peat/cloudlet_platform/logs/dao",
          "log_level": "debug",
          "as_json": true
       }
@@ -59,7 +59,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/swagger-def",
+         "path": "/opt/peat/cloudlet_platform/logs/swagger-def",
          "log_level": "info",
          "as_json": true
       }
@@ -83,7 +83,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/swagger-def-http",
+         "path": "/opt/peat/cloudlet_platform/logs/swagger-def-http",
          "log_level": "info",
          "as_json": true
       }
@@ -112,7 +112,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/type_api",
+         "path": "/opt/peat/cloudlet_platform/logs/type_api",
          "log_level": "debug",
          "as_json": false
       },
@@ -151,7 +151,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/object_api",
+         "path": "/opt/peat/cloudlet_platform/logs/object_api",
          "log_level": "debug",
          "as_json": true
       },
@@ -205,7 +205,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/cloudlet_api",
+         "path": "/opt/peat/cloudlet_platform/logs/cloudlet_api",
          "log_level": "debug",
          "as_json": true
       },
@@ -245,7 +245,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/attachment_api",
+         "path": "/opt/peat/cloudlet_platform/logs/attachment_api",
          "log_level": "debug",
          "as_json": true
       },
@@ -276,7 +276,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/search_api",
+         "path": "/opt/peat/cloudlet_platform/logs/search_api",
          "log_level": "debug",
          "as_json": true
       },
@@ -323,7 +323,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/permissions_api",
+         "path": "/opt/peat/cloudlet_platform/logs/permissions_api",
          "log_level": "debug",
          "as_json": true
       },
@@ -388,7 +388,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/notification.log",
+         "path": "/opt/peat/cloudlet_platform/logs/notification.log",
          "log_level": "debug",
          "as_json": false
       },
@@ -435,7 +435,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/crud_api",
+         "path": "/opt/peat/cloudlet_platform/logs/crud_api",
          "log_level": "debug",
          "as_json": false
       },
@@ -498,12 +498,12 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/crud_api",
+         "path": "/opt/peat/cloudlet_platform/logs/crud_api",
          "log_level": "debug",
          "as_json": false
       }
    },
-   "openi_rrd": {
+   "peat_rrd": {
       "cloudlet": {
          "get": [
             "all"
@@ -530,80 +530,80 @@
          "delete": []
       },
       "graphs": {
-         "openi_cloudlet_api_report": {
-            "openi_cloudlet_get": {
+         "peat_cloudlet_api_report": {
+            "peat_cloudlet_get": {
                "color": "0F6AB4",
                "label": "GET"
             },
-            "openi_cloudlet_put": {
+            "peat_cloudlet_put": {
                "color": "C5862B",
                "label": "PUT"
             },
-            "openi_cloudlet_post": {
+            "peat_cloudlet_post": {
                "color": "10A54A",
                "label": "POST"
             },
-            "openi_cloudlet_delete": {
+            "peat_cloudlet_delete": {
                "color": "A41E22",
                "label": "DELETE"
             }
          },
-         "openi_cloudlet_stats_report": {
-            "openi_cloudlet_get": {
+         "peat_cloudlet_stats_report": {
+            "peat_cloudlet_get": {
                "color": "C5862B",
                "label": "GET"
             },
-            "openi_cloudlet_get_all": {
+            "peat_cloudlet_get_all": {
                "color": "99CC00",
                "label": "GET ALL"
             }
          },
-         "openi_object_api_report": {
-            "openi_object_get": {
+         "peat_object_api_report": {
+            "peat_object_get": {
                "color": "0F6AB4",
                "label": "GET"
             },
-            "openi_object_put": {
+            "peat_object_put": {
                "color": "C5862B",
                "label": "PUT"
             },
-            "openi_object_post": {
+            "peat_object_post": {
                "color": "10A54A",
                "label": "POST"
             },
-            "openi_object_delete": {
+            "peat_object_delete": {
                "color": "A41E22",
                "label": "DELETE"
             }
          },
-         "openi_object_stats_report": {
-            "openi_object_get": {
+         "peat_object_stats_report": {
+            "peat_object_get": {
                "color": "0F6AB4",
                "label": "GET"
             },
-            "openi_object_get_id_only": {
+            "peat_object_get_id_only": {
                "color": "009999",
                "label": "ID ONLY"
             },
-            "openi_object_get_resolve": {
+            "peat_object_get_resolve": {
                "color": "3333CC",
                "label": "RESOLVE"
             }
          },
-         "openi_type_api_report": {
-            "openi_type_get": {
+         "peat_type_api_report": {
+            "peat_type_get": {
                "color": "0F6AB4",
                "label": "GET"
             },
-            "openi_type_put": {
+            "peat_type_put": {
                "color": "C5862B",
                "label": "PUT"
             },
-            "openi_type_post": {
+            "peat_type_post": {
                "color": "10A54A",
                "label": "POST"
             },
-            "openi_type_delete": {
+            "peat_type_delete": {
                "color": "A41E22",
                "label": "DELETE"
             }
@@ -626,7 +626,7 @@
          "id": "rb"
       }
    },
-   "openi_aggregator": {
+   "peat_aggregator": {
       "dao_sink": {
          "spec": "tcp://127.0.0.1:49999",
          "bind": false,
@@ -651,7 +651,7 @@
          }
       },
       "logger_params": {
-         "path": "/opt/openi/cloudlet_platform/logs/aggregator",
+         "path": "/opt/peat/cloudlet_platform/logs/aggregator",
          "log_level": "debug",
          "as_json": true
       },

@@ -2,9 +2,9 @@
 
 FROM ubuntu:14.04
 
-MAINTAINER Aiden Keating <akeating@tssg.org>
+MAINTAINER Dylan Conway <dconway@tssg.org>
 
-RUN mkdir -p /opt/openi/cloudlet_platform/logs && \                                                                       
+RUN mkdir -p /opt/peat/cloudlet_platform/logs && \                                                                       
     apt-get update -y && \                                                                                           
     apt-get -y install git wget build-essential g++ uuid-dev binutils libtool autoconf automake libssl-dev apache2-utils python librrd-dev && \
     cd /tmp && \ 

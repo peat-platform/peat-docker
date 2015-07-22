@@ -1,24 +1,24 @@
 #!/bin/sh
 
-docker build -t openiicteu/dao             dao/
-docker build -t openiicteu/dao_proxy       dao_proxy/
-docker build -t openiicteu/authapi         auth_api/
-docker build -t openiicteu/typeapi         type_api/
-docker build -t openiicteu/redirect        redirect/
-docker build -t openiicteu/mongrel2        mongrel2/
-docker build -t openiicteu/couchbase       couchbase/
-docker build -t openiicteu/searchapi       search_api/
-docker build -t openiicteu/objectapi       object_api/
-docker build -t openiicteu/swaggerdef      swagger_def/
-docker build -t openiicteu/cloudletapi     cloudlet_api/
-docker build -t openiicteu/auth-dialogs    auth-dialogs/
-docker build -t openiicteu/elasticsearch   elasticsearch/
-docker build -t openiicteu/notifications   notifications/
-docker build -t openiicteu/attachmentapi   attachment_api/
-docker build -t openiicteu/permissionsapi  permissions_api/
-docker build -t openiicteu/httpswaggerdef  http_swagger_def/
-docker build -t openiicteu/admin-dashboard admin-dashboard/
-docker build -t openiicteu/user-dashboard  user-dashboard/
+docker build -t peatplatform/dao             dao/
+docker build -t peatplatform/dao_proxy       dao_proxy/
+docker build -t peatplatform/authapi         auth_api/
+docker build -t peatplatform/typeapi         type_api/
+docker build -t peatplatform/redirect        redirect/
+docker build -t peatplatform/mongrel2        mongrel2/
+docker build -t peatplatform/couchbase       couchbase/
+docker build -t peatplatform/searchapi       search_api/
+docker build -t peatplatform/objectapi       object_api/
+docker build -t peatplatform/swaggerdef      swagger_def/
+docker build -t peatplatform/cloudletapi     cloudlet_api/
+docker build -t peatplatform/auth-dialogs    auth-dialogs/
+docker build -t peatplatform/elasticsearch   elasticsearch/
+docker build -t peatplatform/notifications   notifications/
+docker build -t peatplatform/attachmentapi   attachment_api/
+docker build -t peatplatform/permissionsapi  permissions_api/
+docker build -t peatplatform/httpswaggerdef  http_swagger_def/
+docker build -t peatplatform/admin-dashboard admin-dashboard/
+docker build -t peatplatform/user-dashboard  user-dashboard/
 
 
-docker build -t openiicteu/cloudlet_platform  cloudlet_platform/
+docker build -t peatplatform/cloudlet_platform  cloudlet_platform/

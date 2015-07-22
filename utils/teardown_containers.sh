@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker rm -f $(docker ps -a | grep "openi" | awk "{print \$1}")
+docker rm -f $(docker ps -a | grep "peat" | awk "{print \$1}")

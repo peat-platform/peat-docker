@@ -3,10 +3,10 @@
 FROM ubuntu:14.04
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
-RUN mkdir /opt/openi/
+RUN mkdir /opt/peat/
 
-ADD configure.sh /opt/openi/
-ADD setup.sh /opt/openi/
+ADD configure.sh /opt/peat/
+ADD setup.sh /opt/peat/
 
 RUN apt-get update && apt-get install -y bash wget software-properties-common curl && \
     wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add - && \
@@ -20,9 +20,9 @@ RUN apt-get update && apt-get install -y bash wget software-properties-common cu
     /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
     /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf/master && \
     wget https://raw.githubusercontent.com/couchbaselabs/elasticsearch-transport-couchbase/master/src/main/resources/couchbase_template.json -P /usr/share/elasticsearch/templates && \
-    bash /opt/openi/configure.sh
+    bash /opt/peat/configure.sh
 
-ENTRYPOINT ["bash", "/opt/openi/setup.sh"]    
+ENTRYPOINT ["bash", "/opt/peat/setup.sh"]    
 
 
 

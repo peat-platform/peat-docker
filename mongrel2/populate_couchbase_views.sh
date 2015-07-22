@@ -12,11 +12,11 @@ curl --cacert $SSL_CERT -X PUT \
              "reduce":"_count"
          },
          "object_by_type" : {
-            "map" : "function (doc, meta) {\n   \n  emit( [doc[\"@cloudlet\"], doc[\"@openi_type\"], doc[\"@cloudlet\"]], [doc[\"@cloudlet\"], doc[\"@id\"]] );\n  \n  for ( i in doc._permissions){\n    \n    if ( doc._permissions[i][\"read\"] ){\n  \temit( [i, doc[\"@openi_type\"], doc[\"@cloudlet\"]], [doc[\"@cloudlet\"], doc[\"@id\"]] );\n    }\n    \n  }\n}",
+            "map" : "function (doc, meta) {\n   \n  emit( [doc[\"@cloudlet\"], doc[\"@type\"], doc[\"@cloudlet\"]], [doc[\"@cloudlet\"], doc[\"@id\"]] );\n  \n  for ( i in doc._permissions){\n    \n    if ( doc._permissions[i][\"read\"] ){\n  \temit( [i, doc[\"@type\"], doc[\"@cloudlet\"]], [doc[\"@cloudlet\"], doc[\"@id\"]] );\n    }\n    \n  }\n}",
             "reduce" : "_count"
          },
          "type_usage" : {
-            "map" : "function (doc, meta) {\n  emit(doc[\"@openi_type\"], 1);\n}",
+            "map" : "function (doc, meta) {\n  emit(doc[\"@type\"], 1);\n}",
             "reduce" : "_count"
          }
       }

@@ -1,11 +1,11 @@
-# The OPENi docker guide
+# The PEAT docker guide
 
-This guide aims to aid a user in downloading, installing, updating and contributing to OPENi docker.
+This guide aims to aid a user in downloading, installing, updating and contributing to PEAT docker.
 It aims to answer a series of questions, these are:
 * What is docker?
-* What is OPENi docker?
+* What is PEAT docker?
 * How do I install docker?
-* How do I install OPENi docker?
+* How do I install PEAT docker?
 * How do I edit docker code?
 
 ## What is docker?
@@ -23,14 +23,14 @@ Dockers advantages over actual virtual machines are its speed (starting a new co
 
 A video introduction to Docker can be found [here](https://youtu.be/ZzQfxoMFH0U)
 
-## What is OPENi docker?
-OPENi docker is an attempt to take the OPENi project and run it upon docker, this required splitting the platform into individual docker images and running each image as a container, the containers must then link together to form a network of docker containers that can allow ZeroMQ and database communications between them.
+## What is PEAT docker?
+PEAT docker is an attempt to take the PEAT project and run it upon docker, this required splitting the platform into individual docker images and running each image as a container, the containers must then link together to form a network of docker containers that can allow ZeroMQ and database communications between them.
 
-As of the 27th March there are over 17 images in the OPENi docker project, each of these images house a single task that the OPENi project performs. Most of these images can be completely self contained at run-time, however a few  of them (namely the database) must persist data outside of the running docker containers so that if the containers die the data stored inside the database is not lost.
+As of the 27th March there are over 17 images in the PEAT docker project, each of these images house a single task that the PEAT project performs. Most of these images can be completely self contained at run-time, however a few  of them (namely the database) must persist data outside of the running docker containers so that if the containers die the data stored inside the database is not lost.
 
 ## How do I install docker?
 
-(Note this is performed with the provisioning script in OPENi docker for Ubuntu)
+(Note this is performed with the provisioning script in PEAT docker for Ubuntu)
 
 Docker required linux specific components to work, because of this Docker must be installed differently on different machines.
 
@@ -79,24 +79,24 @@ For Windows there is only one option, Boot2Docker, the installation instructions
 
 For all other Operating systems installation notes can be found on the docker website.
 
-## How do I install OPENi docker?
+## How do I install PEAT docker?
 
 If you're on ubuntu it's easy.
 
 ```bash
-git clone www.github.com/OPENi-ict/openi-docker.git
-cd openi-docker/
+git clone www.github.com/peat-platform/peat-docker.git
+cd peat-docker/
 sudo bash provision_ubuntu_server.sh
 ```
 
 You're done! Visit the IP address of the machine in your browser.
 
-There are a small number of steps involved in installing OPENi docker without the provision script.
+There are a small number of steps involved in installing PEAT docker without the provision script.
 
 First pull the git repository.
 
 ```bash
-git clone www.github.com/OPENi-ict/openi-docker.git
+git clone www.github.com/peat-platform/peat-docker.git
 ```
 
 Then you can either build the images or download them. The rule of thumb of this choice is that if you have high internet speed then download them, else build them.
@@ -104,18 +104,18 @@ Then you can either build the images or download them. The rule of thumb of this
 To download the images run. (If no $VERSION then leave it out to download latest)
 
 ```bash
-cd openi-docker/
+cd peat-docker/
 sudo bash utils/pull_all.sh $VERSION
 ```
 
 To install the images run.
 
 ```bash
-cd openi-docker/
+cd peat-docker/
 sh cloudlet_platform/build_default_setup.sh
 ```
 
-Then to run the OPENi platform you must edit the ``` conf ``` file, all but the first two variables ```C_LOG_PATH``` and ```M_LOG_PATH``` should be changed. You can also add your own certs into the ```mongrel2/certs/``` path.
+Then to run the PEAT platform you must edit the ``` conf ``` file, all but the first two variables ```C_LOG_PATH``` and ```M_LOG_PATH``` should be changed. You can also add your own certs into the ```mongrel2/certs/``` path.
 
 Finally you can actually run the platform.
 
@@ -123,9 +123,9 @@ Finally you can actually run the platform.
 sh cloudlet_platform/run_default_setup.sh 
 ```
 
-Now all of the images will run as containers on your system, after this script completes go to ```http://localhost``` and you should see a running OPENi platform.
+Now all of the images will run as containers on your system, after this script completes go to ```http://localhost``` and you should see a running PEAT platform.
 
-## How do I edit OPENi docker code?
+## How do I edit PEAT docker code?
 
 You can edit the code rather easily, the Dockerfile syntax is explained clearly on the Docker website.
 
@@ -155,7 +155,7 @@ Rerun ```docker info``` and make sure it says aufs where it used to say devicema
 ### What is that --net command doing in run_all.sh?
 That is networking the docker containers through a single docker interface,
 this is a temporary fix until a tool like Weave, Triton or SocketPlane can fully support the container networking that we need.
-To add another container to this just follow the same template as the other containers and use ```--net=container:openicb```
+To add another container to this just follow the same template as the other containers and use ```--net=container:peatcb```
 
 ### Is there an easy way to look inside my container?
 You can use ```-it``` instead of ```-d``` for the docker run command to see the output from any code ran inside, however

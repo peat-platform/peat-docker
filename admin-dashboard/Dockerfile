@@ -1,11 +1,11 @@
-# This file creates a Docker image containing the OPENi auth dialogs
+# This file creates a Docker image containing the PEAT auth dialogs
 
-FROM openiicteu/cloudlet_core 
+FROM peatplatform/cloudlet_core 
 MAINTAINER Aiden Keating <akeating@tssg.org>
 
-# Install openi auth dialogs
+# Install peat auth dialogs
 RUN sudo apt-get -y update && sudo apt-get install -y build-essential python && \
-    git clone https://github.com/OPENi-ict/admin-dashboard.git && \
+    git clone https://github.com/peat-platform/admin-dashboard.git && \
     cd admin-dashboard/ && npm install && \
     sudo apt-get purge -y python gcc && \
     sudo apt-get autoclean && \

@@ -59,7 +59,7 @@ switch (worker){
       worker = 'dao'
       workerMainFunction = require(worker).dao_proxy;
       break;
-   case 'openi_rrd':
+   case 'peat_rrd':
       workerMainFunction = require(worker).init;
       break;
    case 'https_redirect':
