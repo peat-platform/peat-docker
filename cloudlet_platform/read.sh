@@ -34,10 +34,10 @@ echo $( cat conf.json | JSON.sh -p | egrep '\["object_api"*"\]' | sed -e 's/\[\"
 #echo $( cat conf.json | JSON.sh -p | egrep '\["crud_api"*"\]' | sed -e 's/\[\"crud_api\"\]//g')
 
 
-#echo $( cat conf.json | JSON.sh -p | egrep '\["openi_rrd"*"\]' | sed -e 's/\[\"openi_rrd\"\]//g')
+#echo $( cat conf.json | JSON.sh -p | egrep '\["peat_rrd"*"\]' | sed -e 's/\[\"peat_rrd\"\]//g')
 
 
 #echo $( cat conf.json | JSON.sh -p | egrep '\["https_redirect"*"\]' | sed -e 's/\[\"https_redirect\"\]//g')
 
 
-#echo $( cat conf.json | JSON.sh -p | egrep '\["openi_aggregator"*"\]' | sed -e 's/\[\"openi_aggregator\"\]//g')
+#echo $( cat conf.json | JSON.sh -p | egrep '\["peat_aggregator"*"\]' | sed -e 's/\[\"peat_aggregator\"\]//g')

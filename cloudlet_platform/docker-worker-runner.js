@@ -51,7 +51,7 @@ switch ( worker ) {
       worker = 'dao';
       workerMainFunction = require(worker).perms_prop_worker;
       break;
-   case 'openi_rrd':
+   case 'peat_rrd':
       workerMainFunction = require(worker).init;
       break;
    case 'https_redirect':

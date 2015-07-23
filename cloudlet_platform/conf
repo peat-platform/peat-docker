@@ -1,6 +1,6 @@
 
 # path on host to output container and mongrel 2 logs to
-LOG_OUTPUT_PATH_ROOT="/opt/openi/docker/logs/"
+LOG_OUTPUT_PATH_ROOT="/opt/peat/docker/logs/"
 
 # path on host to output couchbase data to
-COUCHBASE_DATA_PATH="/opt/openi/docker/couchbase_data"
+COUCHBASE_DATA_PATH="/opt/peat/docker/couchbase_data"
